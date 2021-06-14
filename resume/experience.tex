@@ -8,7 +8,9 @@
     {Sep. 2019 - PRESENT} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {负责GPU用户态驱动及相关工具的开发}
+        \item {GenBu GPU用户态驱动的开发和维护，主要有glGetTexImage, glTextureView.}
+        \item {trace版本的libGL: 使用dlopen打开系统原生libGL.so, 并对API重新封装，同时加入自定义trace信息，再构建生成libGL.so来取代原生的libGL.so}
+        \item {libgbm: 在mesa libgbm的基础上改写成新的libgbm以适配GenBu的KMD}
       \end{cvitems}
     }
 
