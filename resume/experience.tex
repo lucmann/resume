@@ -8,9 +8,15 @@
     {Sep. 2019 - PRESENT} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {GenBu GPU用户态驱动的开发和维护，主要有glGetTexImage, glTextureView.}
+        \item {libGL: GenBu GPU用户态驱动的开发和维护，主要是OpenGL 4.3的API, 有glGetTexImage, glTextureView, glPixelStore}
         \item {trace版本的libGL: 使用dlopen打开系统原生libGL.so, 并对API重新封装，同时加入自定义trace信息，再构建生成libGL.so来取代原生的libGL.so}
+        \item {GLX: 设计实现GenBu在X11平台的GLX 1.4 API}
         \item {libgbm: 在mesa libgbm的基础上改写成新的libgbm以适配GenBu的KMD}
+        \item {genbu\_drv.so: X11的设备相关驱动(DDX)，2D显示驱动, 了解Xorg的Video Driver加载机制及PCI显卡的检测机制，基于modesetting移植GenBu显卡的DDX}
+        \item {glamor: 了解X11的2D加速实现glamor}
+        \item {DRM: 了解内核DRM子系统，调试和调研GEM\_CREATE, GEM\_CLOSE, SYNCOBJ，内存管理和BO同步的实现}
+        \item {系统调用: 了解ioctl, mmap系统调用的内核实现，了解strace系统调用调试工具}
+        \item {Jenkins: 了解Jenkins CI pipeline的搭建方法，可以完成从编译，测试，打包(rpm包和deb包)，发布全流程的CI搭建和自动化}
       \end{cvitems}
     }
 
