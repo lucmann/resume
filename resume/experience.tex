@@ -11,7 +11,7 @@
         \item {libGL: 开发 GPU 用户态驱动，实现对OGL 3.0 - 4.3的大部分API的支持 (2019-2020)}
         \item {libgbm: 移植 Mesa 实现的 GBM 后端, 以支持基于 Generic Buffer Manager 接口的应用和功能，如 Xorg 的 Glamor (2019-2020)}
         \item {GLX: 实现 GLX 1.4 API (2020-2021)}
-        \item {DDX: 移植 xf86-video-modesettting, xf86-video-modesettting 作为 X11 服务器内置的 2D 显示用户态驱动，实现了大部分通用显示模式设置的功能，但由于其主要为了通用性设计，因此在移植后针对 GB 硬件做了性能优化，如 (2020-2021)}
+        \item {DDX: 移植 xf86-video-modesettting, xf86-video-modesettting 作为 X11 服务器内置的 2D 显示用户态驱动，实现了大部分通用显示模式设置的功能，但由于其主要为了通用性设计，因此在移植后针对 GB 硬件做了性能优化，如 DMA 加速的 shadowUpdatePacked 函数 (2020-2021)}
         \item {Jenkins: 完成了UMD从编译，测试，打包(rpm包和deb包)，发布全流程的CI搭建和自动化 (2021)}
         \item {Mesa/Gallium: 第2代显卡驱动基于 Mesa Gallium 框架，重新实现了 ARB\_geometry\_shader4,  ARB\_uniform\_buffer\_object, ARB\_transform\_feedback 等重点核心扩展，并进行相关性能调优 (2021-2023)}
         \item {JDX: 利用 LD\_PRELOAD 技术开发了公司级的调试工具，至今仍然是驱动问题定位的常用工具之一 (2022)}
