@@ -9,6 +9,8 @@ OPTIONS := -interaction=nonstopmode
 
 all: $(OBJS)
 
+# It is a bit confusing the option `-jobname` is actually used to specify
+# the resulting PDF filename (without extension)
 $(OBJS): %.pdf: $(SRC)
 	$(NONSTOP)xelatex $(OPTIONS) -jobname=$(basename $@) $<
 
