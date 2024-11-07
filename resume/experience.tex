@@ -4,11 +4,23 @@
   \cventry
     {Linux Graphics Driver Engineer} % Job title
     {芯瞳半导体} % Organization
-    {陕西, 西安} % Location
+    {陕西•西安} % Location
     {Sep. 2019 - PRESENT} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {libGL: 开发 GPU 用户态驱动，实现对OGL 3.0 - 4.3的大部分API的支持 (2019-2020)}
+        \item {\textbf{GenBu01 项目 - UMD 用户态驱动} (2019-2021) \vfill \break 主要是开发 OpenGL 高版本功能和适配飞腾平台的 Kylin,
+        UOS 等主流国产操作系统，项目目标是 OpenGL 支持到 4.0, 并支持 GLX 1.4。UMD 主要包括两部分：GPU 的 OpenGL 库和 DC 的 X11
+        DDX。项目期间
+          \begin{itemize}
+            \item 熟悉了几个主要的 OpenGL Spec 3.0, 3.3, 4.0, 4.3, 对 OpenGL 实现有了深入的了解;
+            \item 除了实现 libGL 库外, 还实现了 libGLX;
+            \item 从 Mesa 移植了 GBM 的一个后端实现;
+            \item 了解了 GLVND 的实现机制;
+            \item 2D 方面，熟悉了 X Server 的启动过程，加载扩展和驱动的过程;
+            \item 熟悉了 Xorg 里的 2D 加速实现 glamor;
+            \item 从 xserver/hw/xfree86/drivers/modesetting 移植成 xf86-video-sietium 作为 GenBu01 的 Downstream DDX
+          \end{itemize}
+        }
         \item {libgbm: 移植 Mesa Generic Buffer Manager 后端, 用来支持基于 GBM 接口的应用和功能，如 Xorg 的 Glamor (2019-2020)}
         \item {GLX: 实现 GLX 1.4 API (2020-2021)}
         \item {DDX: 移植 xf86-video-modesettting, xf86-video-modesettting 作为 X11 服务器内置的 2D 显示用户态驱动，实现了大部分通用显示模式设置的功能，但由于其主要为了通用性设计，因此在移植后针对 GB 硬件做了性能优化，如 DMA 加速的 shadowUpdatePacked 函数 (2020-2021)}
@@ -21,7 +33,7 @@
   \cventry
     {Software Engineer} % Job title
     {中兴通讯} % Organization
-    {陕西, 西安} % Location
+    {陕西•西安} % Location
     {Jul. 2015 - Sep. 2019} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
