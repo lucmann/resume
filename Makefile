@@ -6,6 +6,7 @@ OBJS := \
 
 OPTIONS := -interaction=nonstopmode
 
+.PHONY: all clean $(OBJS)
 
 all: $(OBJS)
 
@@ -16,5 +17,3 @@ $(OBJS): %.pdf: $(SRC)
 
 clean:
 	rm -f $(OBJS) *.aux *.log *.out
-
-.PHONY: all clean
