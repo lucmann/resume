@@ -25,19 +25,43 @@
               \item 熟悉了 Xorg 里的 2D 加速实现 glamor, 利用 EGL 和 OpenGL 去实现 X11 里的 Graphics 操作 (GCOps);
               \item 从 xserver/hw/xfree86/drivers/modesetting 移植成 xf86-video-sietium 作为 GenBu01 的 Downstream DDX;
             \end{itemize}
-            \item 硬件方面:
+            \item 其它:
             \begin{itemize}
               \item 驱动适配和性能优化的目标平台主要是飞腾 D2000/8，适配过程中了解了 AARCH64 的一些汇编，内存模型，缓存策略，设备内存属性和 X86-64 平台的区别，以及 CPU hotplug, affinity相关知识
+              \item 完成了 UMD 从编译，测试，打包(rpm 包和 deb 包)，版本发布全流程的Jenkins CI搭建和自动化
             \end{itemize}
           \end{itemize}
         }
-        \item {\textbf{GenBu02 项目 - Mesa 驱动} (2021 - 至今) \vfill \break 从公司第 2 代产品开始，GPU 用户态驱动采用了新的开源驱动框架 Mesa/Gallium，目标是完全}
-        \item {libgbm: 移植 Mesa Generic Buffer Manager 后端, 用来支持基于 GBM 接口的应用和功能，如 Xorg 的 Glamor (2019-2020)}
-        \item {GLX: 实现 GLX 1.4 API (2020-2021)}
-        \item {DDX: 移植 xf86-video-modesettting, xf86-video-modesettting 作为 X11 服务器内置的 2D 显示用户态驱动，实现了大部分通用显示模式设置的功能，但由于其主要为了通用性设计，因此在移植后针对 GB 硬件做了性能优化，如 DMA 加速的 shadowUpdatePacked 函数 (2020-2021)}
-        \item {Jenkins: 完成了UMD从编译，测试，打包(rpm包和deb包)，发布全流程的CI搭建和自动化 (2021)}
-        \item {Mesa/Gallium: 基于 Mesa Gallium 框架，负责几何着色器实现方案的整体设计，实现了基于 Computer Shader 的几何着色器功能, 多层渲染功能和 Transform Feedback 等一系列核心扩展，并对 BO 管理等核心组件进行代码重构和性能调优 (2021- 至今)}
-        \item {JDX: 使用 LD\_PRELOAD 技术开发 GPU 驱动调试工具，提高问题定位效率 (2022- 至今)}
+        \item {\textbf{GenBu02 项目 - Mesa 驱动} (2021 - 至今) \vfill \break 从公司第 2 代产品开始，GPU 用户态驱动采用了新的开源驱动框架
+        Mesa/Gallium，目标是完全按照 Linux 图形栈实现整个驱动，KMD 实现 DRM/KMS GPU Driver, 使用 drm\_gpu\_scheduler GPU 任务调度器,
+        显存管理器使用 TTM, UMD 实现 DRI2/3，使用 DMA-BUF 进程间 Buffer Sharing 实现送显。项目期间
+          \begin{itemize}
+            \item UMD:
+            \begin{itemize}
+              \item 项目初期，对 Mesa/Gallium 的 swrast (软渲染) 驱动及 pipe-loader, winsys, driconf 及构建系统等代码集中学习分析之后，
+              在一个月时间内由攻坚小组(共 4 人)完成基本框架和功能的编码，glxgears 可以正常运行。
+              \item 对 Indirect Draw, Geometry Shader, Transfrom Feedback, Tessellation Shader 功能进行了实现和移植，Indirect Draw
+              复用了 mesa/util 的 util\_draw\_indirect() 实现，Tessellation Shader 复用了 Microsoft 的 C++ tessellator 细分器实现。
+              在这些主要功能实现后，glmark2 的大部分 场景都正常运行
+              \item 项目中后期主要是修复测试出来的 Bug, 测试集包括 glxgears, glmark2, CTS, KC-CTS, piglit, 其中 CTS 通过率 94\%
+              \item 客户适配阶段主要是性能分析和优化，使用包括 apitrace, perf/flamegraph, JDX 等工具找到热点函数，进行代码重构和 CPU/GPU 硬件相关的一些优化。
+              \item 项目过程也整理了不少学习笔记和内部文档，以及代码仓库的 clean code, 如 clang-format, 还有 workflow 的制定。
+            \end{itemize}
+            \item KMD:
+            \begin{itemize}
+              \item 熟悉了 DRM 子系统的 drm\_gpu\_scheduler 和 TTM/GEM 内存管理器，DMA-BUF 子系统的 buffer import/export 流程，dma\_fence 的工作机制等
+              \item 了解了 GPU 同步中使用的 drm\_syncobj, 及 implicit sync 和 explicit sync 的区别
+              \item 了解了内核 Memory Shrinker 及在 drm\_gpu\_scheduler 中申请内存时的限制
+              \item 了解了 KMS 的 Atomic commit, 以及 KMS 与 X11 DDX 的关系
+            \end{itemize}
+            \item 其它:
+            \begin{itemize}
+              \item 利用 ARM 向量指令 NEON 优化的 string.h 的实现版本，加速 CPU 访问内存
+              \item 了解了 ARM 平台的 Device-GRE 和 X86-64 平台的 Write-Combining 非 Cache 内存类型
+              \item GPU 中的一些硬件设计的原理
+            \end{itemize}
+          \end{itemize}
+        }
       \end{cvitems}
     }
 
