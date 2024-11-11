@@ -8,7 +8,7 @@
     {Sep. 2019 - PRESENT} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {\textbf{GenBu01 项目 - UMD 用户态驱动} (2019-2021) \vfill \break 主要是开发 OpenGL 高版本功能和适配飞腾平台的 Kylin,
+        \item {\textbf{GenBu01 项目 - UMD 用户态驱动} (2019 - 2021) \vfill \break 主要是开发 OpenGL 高版本功能和适配飞腾平台的 Kylin,
         UOS 等主流国产操作系统，项目目标是 OpenGL 支持到 4.0, 并支持 GLX 1.4。UMD 主要包括两部分：GPU 的 OpenGL 库和 DC 的 X11
         DDX。项目期间
           \begin{itemize}
@@ -27,10 +27,11 @@
             \end{itemize}
             \item 硬件方面:
             \begin{itemize}
-              \item 驱动适配和性能优化的目标平台主要是飞腾 D2000/8，适配过程中了解了 AARCH64 的一些汇编，内存模型，缓存策略，设备内存属性和 X86-64 平台的区别，以及 CPU 调度的一些知识
+              \item 驱动适配和性能优化的目标平台主要是飞腾 D2000/8，适配过程中了解了 AARCH64 的一些汇编，内存模型，缓存策略，设备内存属性和 X86-64 平台的区别，以及 CPU hotplug, affinity相关知识
             \end{itemize}
           \end{itemize}
         }
+        \item {\textbf{GenBu02 项目 - Mesa 驱动} (2021 - 至今) \vfill \break 从公司第 2 代产品开始，GPU 用户态驱动采用了新的开源驱动框架 Mesa/Gallium，目标是完全}
         \item {libgbm: 移植 Mesa Generic Buffer Manager 后端, 用来支持基于 GBM 接口的应用和功能，如 Xorg 的 Glamor (2019-2020)}
         \item {GLX: 实现 GLX 1.4 API (2020-2021)}
         \item {DDX: 移植 xf86-video-modesettting, xf86-video-modesettting 作为 X11 服务器内置的 2D 显示用户态驱动，实现了大部分通用显示模式设置的功能，但由于其主要为了通用性设计，因此在移植后针对 GB 硬件做了性能优化，如 DMA 加速的 shadowUpdatePacked 函数 (2020-2021)}
