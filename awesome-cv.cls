@@ -546,9 +546,18 @@
   \setlength{\LTright}{0pt}
   \setlength{\LTpre}{0pt}
   \setlength{\LTpost}{-5pt}
-  \begin{longtable}{@{\extracolsep{\fill}} R{4.5cm} L{\textwidth - 4.5cm}}
+  \begin{longtable}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     }{%
   \end{longtable}
+}
+
+% Usage: \cventry{<1_position>}{<2_title>}{<3_location>}{<4_date>}{<5_description>}
+\newcommand*{\addentry}[5]{%
+  \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+        \entrypositionstyle{#1} & \entrydatestyle{#4}}
+  \ifempty{#5}{}{\\\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
 }
 
 % Define a subentry in a longtable
