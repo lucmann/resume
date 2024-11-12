@@ -538,6 +538,26 @@
   \end{tabular*}%
 }
 
+% https://github.com/posquit0/Awesome-CV/issues/331
+% Define an environment for cventry (longtable version)
+\newenvironment{cventries_ltb}{%
+  \vspace{\acvSectionContentTopSkip}
+  \setlength{\LTleft}{0pt}
+  \setlength{\LTright}{0pt}
+  \setlength{\LTpre}{0pt}
+  \setlength{\LTpost}{-5pt}
+  \begin{longtable}{@{\extracolsep{\fill}} R{4.5cm} L{\textwidth - 4.5cm}}
+    }{%
+  \end{longtable}
+}
+
+% Define an entry in a longtable
+% Usage: \addentry{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\addentry}[4]{%
+  \entrydatestyle{#4} & \entrypositionstyle{#1} \hfill \entrylocationstyle{#3}\\
+  & \entrytitlestyle{#2} \\
+}
+
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
   \begin{center}
