@@ -551,9 +551,9 @@
   \end{longtable}
 }
 
-% Define an entry in a longtable
-% Usage: \addentry{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\addentry}[4]{%
+% Define a subentry in a longtable
+% Usage: \addsubentry{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\addsubentry}[4]{%
   \entrydatestyle{#4} & \entrypositionstyle{#1} \hfill \entrylocationstyle{#3}\\
   & \entrytitlestyle{#2} \\
 }
