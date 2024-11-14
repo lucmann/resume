@@ -83,11 +83,13 @@
 % Needed to deal a paragraphs
 \RequirePackage{parskip}
 % Needed to deal hyperlink
-\RequirePackage[colorlinks,unicode]{hyperref}
+\RequirePackage[unicode]{hyperref}
 \hypersetup{%
-  colorlinks,
-  urlcolor=[RGB]{3,149,222},
-  linkcolor=[RGB]{3,149,222},
+  colorlinks=false, % hyperlinks will be black
+  % linkbordercolor=[RGB]{3,149,222}, % As colorlinks is deactivated, so hyperref sets the link border
+  linkbordercolor=gray, % As colorlinks is deactivated, so hyperref sets the link border
+  urlbordercolor=gray, % As colorlinks is deactivated, so hyperref sets the url border
+  pdfborderstyle={/S/U/W 0.5}, % border style will be underline of width 1pt
   pdftitle={},
   pdfauthor={},
   pdfsubject={},
