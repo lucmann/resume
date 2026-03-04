@@ -1,8 +1,7 @@
 NONSTOP := -
 SRC := resume.tex
 OBJS := \
-	Linux-Graphics-Driver-MaChao.pdf \
-	Linux-图形驱动开发-马超.pdf
+	马超-简历.pdf
 
 OPTIONS := -interaction=nonstopmode
 
