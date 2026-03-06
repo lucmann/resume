@@ -8,28 +8,20 @@
     {2021 - 2025} % Date(s)
     {
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {从公司第 2 代产品开始，GPU 用户态驱动采用了新的开源驱动框架 Mesa/Gallium，目标是完全按照 Linux 图形栈实现整个驱动，
-        KMD 实现 DRM/KMS GPU Driver, 使用 drm\_gpu\_scheduler GPU 任务调度器, 显存管理器使用 TTM, UMD 实现 DRI2/3，使用
-        DMA-BUF 进程间 Buffer Sharing 实现送显。项目期间
+        \item {主要内容是，GPU 用户态驱动从自研框架转向开源 GPU 驱动框架 Mesa/Gallium，围绕新驱动的功能移植，性能优化，CTS 一致性测试
           \begin{itemize}
-            \item UMD:
-              \item[] 项目初期，对 Mesa/Gallium 的 swrast (软渲染) 驱动及 pipe-loader, winsys, driconf 及构建系统等代码集中学习分析之后，
-              在一个月时间内由攻坚小组(共 4 人)完成基本框架和功能的编码，glxgears 可以正常运行。
-              对 Indirect Draw, Geometry Shader, Transfrom Feedback, Tessellation Shader 功能进行了实现和移植，Indirect Draw
-              复用了 mesa/util 的 util\_draw\_indirect() 实现，Tessellation Shader 复用了 Microsoft 的 C++ tessellator 细分器实现。
-              在这些主要功能实现后，glmark2 的大部分 场景都正常运行
-              项目中后期主要是修复测试出来的 Bug, 测试集包括 glxgears, glmark2, CTS, KC-CTS, piglit, 其中 CTS 通过率 94\%
-              客户适配阶段主要是性能分析和优化，使用包括 apitrace, perf/flamegraph, JDX 等工具找到热点函数，进行代码重构和 CPU/GPU 硬件相关的一些优化。
-              项目过程也整理了不少学习笔记和内部文档，以及代码仓库的 clean code, 如 clang-format, 还有 workflow 的制定。
-            \item KMD:
-              \item[] 熟悉了 DRM 子系统的 drm\_gpu\_scheduler 和 TTM/GEM 内存管理器，DMA-BUF 子系统的 buffer import/export 流程，dma\_fence 的工作机制等
-              了解了 GPU 同步中使用的 drm\_syncobj, 及 implicit sync 和 explicit sync 的区别
-              了解了内核 Memory Shrinker 及在 drm\_gpu\_scheduler 中申请内存时的限制
-              了解了 KMS 的 Atomic commit, 以及 KMS 与 X11 DDX 的关系
+            \item 功能移植:
+              \item[] 驱动框架切换后需要将原驱动的主要特性移植到 Mesa 驱动，负责移植了 GL\_ARB\_geometry\_shader 功能;\newline 
+              协同开发了 GL\_EXT\_transform\_feedback, GL\_ARB\_tessellation\_shader 功能;\newline
+            \item 一致性测试:
+              \item[] 为了通过 KhronosGroup 的 CTS 一致性测试认证，定位和修复了大量驱动 Bug;\newline
+              通过修复 Piglit egl-create-pbuffer-surface 测试用例发现 Xserver 的一个 Bug, 并向Xserver上游提交了
+              \href{https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/1706}{MR};\newline
+              为了提高问题定位的效率，负责开发了 JDX 命令流解析工具，该工具利用 LD\_PRELOAD 动态库加载器环境变量，通过拦截 ioctl()
+              C库函数后，使用 spdlog C\+\+ 日志库，将提交给 GPU 的命令流打印出来;\newline
+              为了方便快速写出一个复现问题的小Demo, 编写了一个简单三角形\href{https://github.com/lucmann/trif}{C++框架 trif(triangle framework)}
             \item 其它:
-              \item[] 利用 ARM 向量指令 NEON 优化的 string.h 的实现版本，加速 CPU 访问内存
-              了解了 ARM 平台的 Device-GRE 和 X86-64 平台的 Write-Combining 非 Cache 内存类型
-              GPU 中的一些硬件设计的原理
+              \item[] 为了针对某些特定场景或应用做定制处理，实现了 UMD 驱动的 DRICONF 支持
           \end{itemize}
         }
       \end{cvitems}

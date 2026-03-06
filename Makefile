@@ -1,7 +1,7 @@
 NONSTOP := -
 SRC := resume.tex
 OBJS := \
-	马超-简历.pdf
+	马超-C++.pdf
 
 OPTIONS := -interaction=nonstopmode
 
