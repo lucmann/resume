@@ -12,7 +12,7 @@
           \begin{itemize}
             \item 功能移植:
               \item[] 驱动框架切换后需要将原驱动的主要特性移植到 Mesa 驱动，负责移植了 GL\_ARB\_geometry\_shader 功能,
-              该功能使用 compute shader 完成前项和计算和顶点索引重排;\newline 
+              该功能充分利用 GPU 的并行计算能力, 使用 compute shader 实现前项和计算和顶点索引重排等几何着色中的重点算法;\newline 
               协同开发了 GL\_EXT\_transform\_feedback, GL\_ARB\_tessellation\_shader 功能;\newline
             \item 一致性测试:
               \item[] 为了通过 KhronosGroup 的 CTS 一致性测试认证，定位和修复了大量驱动 Bug;\newline
