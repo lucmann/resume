@@ -15,4 +15,4 @@ $(OBJS): %.pdf: $(SRC)
 	$(NONSTOP)xelatex $(OPTIONS) -jobname=$(basename $@) $<
 
 clean:
-	rm -f $(OBJS) *.aux *.log *.out *.fdb_latexmk
+	rm -f *.pdf *.aux *.log *.out *.fdb_latexmk
