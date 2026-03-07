@@ -11,7 +11,8 @@
         \item {主要内容是，GPU 用户态驱动从自研框架转向开源 GPU 驱动框架 Mesa/Gallium，围绕新驱动的功能移植，性能优化，CTS 一致性测试
           \begin{itemize}
             \item 功能移植:
-              \item[] 驱动框架切换后需要将原驱动的主要特性移植到 Mesa 驱动，负责移植了 GL\_ARB\_geometry\_shader 功能;\newline 
+              \item[] 驱动框架切换后需要将原驱动的主要特性移植到 Mesa 驱动，负责移植了 GL\_ARB\_geometry\_shader 功能,
+              该功能使用 compute shader 完成前项和计算和顶点索引重排;\newline 
               协同开发了 GL\_EXT\_transform\_feedback, GL\_ARB\_tessellation\_shader 功能;\newline
             \item 一致性测试:
               \item[] 为了通过 KhronosGroup 的 CTS 一致性测试认证，定位和修复了大量驱动 Bug;\newline
