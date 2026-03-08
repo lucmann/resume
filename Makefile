@@ -5,7 +5,10 @@ OBJS := \
 
 OPTIONS := -interaction=nonstopmode
 
-.PHONY: all clean $(OBJS)
+.PHONY: all clean $(OBJS) latexavailable
+
+latexavailable:
+	./latex_available.sh
 
 all: $(OBJS)
 
